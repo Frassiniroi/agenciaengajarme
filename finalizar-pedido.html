@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta http-equiv="Content-Language" content="en">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <title>Finalizar Pedido - Engajar.me</title>
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="HandheldFriendly" content="True">
+      <meta name="MobileOptimized" content="320">
+      <link rel="stylesheet" type="text/css" href="assets/css/bf63d92f-1174-436a-b0ea-6e8c9d1665d144.css">
+      <!--==Fav-icon===============================-->
+      <link rel="shortcut icon" type="image/x-icon" href="https://engajar.me/assets/uploads/usereb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f/5bdfa3e755ca71e9503cb8eaf1021f0e.png">
+      <!--==JAVASCRIPT=============================-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!--==Using-Font-Awesome=====================-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!--==Import-Font-Family======================-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+         body { background-image: none !important; background-color: #f9fafb; }
+
+         /* ===== Instagram Verification (portado da versão antiga) ===== */
+         .ig-cr-row{display:flex;gap:8px;align-items:stretch;margin-bottom:0}
+         .ig-cr-row input{flex:1;padding:14px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:.9rem;outline:none;transition:border-color .2s,box-shadow .2s;min-width:0;font-family:inherit}
+         .ig-cr-row input:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.08)}
+         .ig-cr-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:0 16px;border-radius:10px;border:none;background:linear-gradient(135deg,#7c3aed 0%,#3b82f6 100%);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .15s;flex-shrink:0;box-shadow:0 2px 8px rgba(124,58,237,.30);letter-spacing:.01em}
+         .ig-cr-btn:hover:not(:disabled){opacity:.9;transform:translateY(-1px)}
+         .ig-cr-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+         .ig-cr-spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:cr-spin .7s linear infinite}
+         @keyframes cr-spin{to{transform:rotate(360deg)}}
+         .ig-cr-result{margin-top:8px;padding:9px 13px;border-radius:8px;font-size:.83rem;font-weight:600;display:none;align-items:center;gap:6px;animation:cr-fade .25s ease}
+         @keyframes cr-fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+         .ig-cr-result.success{display:flex;background:hsl(145 60% 94%);border:1.5px solid hsl(145 55% 75%);color:hsl(145 55% 32%)}
+         .ig-cr-result.error{display:flex;background:hsl(0 70% 96%);border:1.5px solid hsl(0 60% 82%);color:hsl(0 60% 42%)}
+         .ig-cr-result.warning{display:flex;background:hsl(38 90% 95%);border:1.5px solid hsl(38 85% 75%);color:hsl(38 80% 35%)}
+         .ig-cr-row.is-hidden{display:none}
+         .ig-cr-result.profile{display:block;background:#fff;border:1px solid #e5e7eb;color:#111827;padding:12px}
+         .ig-cr-profile-card{display:flex;align-items:center;justify-content:space-between;gap:14px}
+         .ig-cr-profile-main{display:flex;align-items:center;gap:11px;min-width:0}
+         .ig-cr-profile-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#f3f4f6;border:1px solid #e5e7eb}
+         .ig-cr-profile-avatar-fallback{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;flex-shrink:0;background:#f3f4f6;color:#7c3aed;font-weight:800}
+         .ig-cr-profile-meta{min-width:0}.ig-cr-profile-user{font-size:.92rem;font-weight:800;color:#111827;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ig-cr-profile-followers{margin-top:2px;font-size:.78rem;font-weight:500;color:#6b7280}
+         .ig-cr-profile-switch{min-width:108px;height:44px;border:none;border-radius:8px;background:#181821;color:#fff;font-size:.82rem;font-weight:800;cursor:pointer}
+         @media(max-width:420px){.ig-cr-profile-card{align-items:stretch;flex-direction:column}.ig-cr-profile-switch{width:100%}}
+         /* ===== fim Instagram Verification ===== */
+      </style>
+   </head>
+   <body class="bg-gray-50">
+
+      <div class="px-4 py-6 md:py-10">
+         <div class="w-full max-w-md mx-auto">
+
+            <!-- Logo -->
+            <div class="flex justify-center mt-4 md:mt-6 mb-6">
+               <a href="https://agenciajvsocialup.com/">
+                  <img src="https://engajar.me/assets/uploads/usereb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f/40b07827f124200d60c4a824a78526c2.png" alt="Logo" class="h-9 md:h-10 w-auto">
+               </a>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 shadow-card p-6 md:p-8">
+
+               <!-- Título -->
+               <h1 class="text-xl md:text-2xl font-bold text-purple-600 text-center mb-5">
+                  Finalizar Pedido
+               </h1>
+
+               <!-- Erro geral -->
+               <div id="formError" class="hidden mb-4 px-3 py-2 rounded-md bg-red-50 border border-red-200 text-red-600 text-sm"></div>
+
+               <!-- Link do Perfil ou @ -->
+               <div class="mb-4">
+                  <label for="linkInput" class="block text-sm font-medium text-gray-800 mb-1.5">Link do Perfil ou @</label>
+                  <div class="ig-cr-row">
+                     <input type="text" id="linkInput" placeholder="@usuario ou link do Instagram" autocomplete="off" spellcheck="false">
+                     <button type="button" id="igCrVerifyBtn" class="ig-cr-btn">
+                        <span id="igCrBtnText">Verificar</span>
+                        <span id="igCrBtnSpinner" style="display:none"><span class="ig-cr-spinner"></span></span>
+                     </button>
+                  </div>
+                  <div id="igCrResult" class="ig-cr-result"></div>
+                  <div class="text-xs text-gray-500 mt-1.5">Informe @usuario ou link completo. Deixe o perfil público durante a entrega.</div>
+               </div>
+
+               <!-- Termos -->
+               <div class="flex items-start gap-3 bg-gray-50 border border-gray-200 rounded-md px-4 py-4 mb-5">
+                  <input type="checkbox" id="agreeChk" class="mt-0.5 h-4 w-4 accent-purple-600 shrink-0">
+                  <label for="agreeChk" class="text-xs md:text-sm text-gray-600 leading-snug">
+                     Concordo com os termos de serviço e política de privacidade
+                  </label>
+               </div>
+
+               <!-- Botão -->
+               <button type="button" id="btnFinalizar" class="w-full bg-primary text-white text-sm md:text-base font-semibold px-4 py-3 rounded-md hover:opacity-90 transition-opacity shadow-[0_4px_4px_#08080814,0_1px_2px_#08080833,inset_0_6px_12px_#ffffff1f,inset_0_1px_1px_#fff3]">
+                  Finalizar Pedido
+               </button>
+
+               <!-- Resumo do Pedido -->
+               <div id="orderSummaryWrapper" class="hidden mt-8">
+                  <div class="text-sm font-semibold text-gray-900 mb-2">Resumo do Pedido</div>
+                  <div id="orderSummary" class="flex items-center justify-between bg-purple-50 border border-purple-100 rounded-md px-4 py-3">
+                     <div>
+                        <div class="text-xs text-gray-500">25% de Desconto</div>
+                        <div class="text-sm font-semibold text-gray-900" id="orderSummaryName">—</div>
+                     </div>
+                     <div class="text-lg font-bold text-purple-600" id="orderSummaryPrice">—</div>
+                  </div>
+               </div>
+
+               <!-- Selo de segurança -->
+               <div class="mt-8 pt-4 border-t border-gray-100 text-center">
+                  <div class="text-sm font-semibold text-gray-900">Compra 100% Segura</div>
+                  <p class="text-xs md:text-sm text-gray-500 mt-1.5">
+                     Não pedimos sua senha do seu perfil em nenhum momento. Seus dados estão protegidos.
+                  </p>
+               </div>
+
+               <div class="flex flex-wrap justify-center gap-6 mt-6">
+                  <div class="inline-flex items-center gap-1.5 text-emerald-700 text-xs md:text-sm font-medium">
+                     <i class="fa-solid fa-shield"></i>
+                     Pagamento Seguro
+                  </div>
+                  <div class="inline-flex items-center gap-1.5 text-black text-xs md:text-sm font-medium">
+                     <i class="fa-regular fa-clock"></i>
+                     Entrega Rápida
+                  </div>
+               </div>
+
+            </div>
+
+            <div class="text-center mt-6">
+               <p style="font-size: 12px; color: #9ca3af; margin: 0;">
+                  &copy; 2020-2026. Todos os Direitos Reservados.
+               </p>
+               <p style="font-size: 12px; color: #9ca3af; margin: 4px 0 0;">
+                  Termos de Uso e Política de Privacidade
+               </p>
+            </div>
+         </div>
+      </div>
+
+      <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         // Catálogo de planos: item_id -> nome exibido, preço e link de checkout
+         var catalog = {
+            '689': { name: '1.000 Seguidores Brasileiros', price: 'R$ 9,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/dca2123b6d1c45d78d883842a6a4707f' },
+            '690': { name: '3.000 Seguidores Brasileiros', price: 'R$ 19,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/8daf3f2bcc6d4b22822a4f385f6176b3' },
+            '691': { name: '5.000 Seguidores Brasileiros', price: 'R$ 24,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/11d1710b620a4bd88a9296d1a3b41a60' },
+            '692': { name: '10.000 Seguidores Brasileiros', price: 'R$ 29,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/594ee0a65c2449759f975d64dbf524fc' },
+            '694': { name: '15.000 Seguidores Brasileiros', price: 'R$ 39,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/b61a61189fe54d60a9ce4cfd04c8f05c' },
+            '695': { name: '20.000 Seguidores Brasileiros', price: 'R$ 49,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/f54af2d1161e4077bda95902ab9cefe9' },
+            '696': { name: '40.000 Seguidores Brasileiros', price: 'R$ 69,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/edfd3b9133bc4b81af61fd833d5ad0ce' },
+            '697': { name: '50.000 Seguidores Brasileiros', price: 'R$ 79,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/7841e8ee3b994a638a3fbfed06b8b042' }
+         };
+
+         // Recupera token e item_id vindos da URL (?token=...&item_id=...)
+         var params = new URLSearchParams(window.location.search);
+         var token = params.get('token') || '';
+         var itemId = params.get('item_id') || '';
+
+         // Preenche o resumo do pedido se o item_id for reconhecido
+         var plan = catalog[itemId];
+         if (plan) {
+            document.getElementById('orderSummaryName').textContent = plan.name;
+            document.getElementById('orderSummaryPrice').textContent = plan.price;
+            document.getElementById('orderSummaryWrapper').classList.remove('hidden');
+         }
+
+         // Se faltar algum dado essencial, avisa e manda de volta pra página de planos
+         if (!token || !itemId || !plan) {
+            var err = document.getElementById('formError');
+            err.textContent = 'Não conseguimos identificar o pacote escolhido. Volte e selecione novamente.';
+            err.classList.remove('hidden');
+            document.getElementById('btnFinalizar').disabled = true;
+            document.getElementById('btnFinalizar').classList.add('opacity-50', 'cursor-not-allowed');
+         }
+
+         // ===== Verificação de Instagram (portado da versão antiga) =====
+         var igCrVerified = false;
+         var igCrLastUser = '';
+
+         function igCrNormalize(val) {
+            val = $.trim(val);
+            var m = val.match(/instagram\.com\/([a-zA-Z0-9._]+)/i);
+            if (m) return m[1].toLowerCase();
+            if (val.charAt(0) === '@') val = val.substring(1);
+            val = val.split('?')[0].replace(/\/$/, '');
+            return val.toLowerCase();
+         }
+
+         function igCrEscape(value) {
+            return String(value || '').replace(/[&<>'"]/g, function (c) {
+               return { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c];
+            });
+         }
+
+         function igCrFollowers(value) {
+            var n = parseInt(value, 10);
+            if (isNaN(n)) return '';
+            try { return n.toLocaleString('pt-BR') + ' seguidores'; } catch (e) { return n + ' seguidores'; }
+         }
+
+         function igCrSetResult(type, msg) {
+            var icon = type === 'success' ? '✓' : (type === 'error' ? '✗' : '⚠');
+            $('#igCrResult').removeClass('success error warning profile').addClass(type).html('<span>' + icon + '</span> ' + igCrEscape(msg)).show();
+         }
+
+         function igCrShowProfile(profile) {
+            var username = profile.username || igCrLastUser || igCrNormalize($('#linkInput').val());
+            var followers = igCrFollowers(profile.followers);
+            var avatar = profile.profile_pic_url
+               ? '<img class="ig-cr-profile-avatar" src="https://agenciajvsocialup.com/' + igCrEscape(profile.profile_pic_url) + '" alt="@' + igCrEscape(username) + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-flex\';"><span class="ig-cr-profile-avatar-fallback" style="display:none;">@</span>'
+               : '<span class="ig-cr-profile-avatar-fallback">@</span>';
+            $('.ig-cr-row').addClass('is-hidden');
+            $('#igCrResult').removeClass('success error warning').addClass('profile').html('<div class="ig-cr-profile-card"><div class="ig-cr-profile-main">' + avatar + '<div class="ig-cr-profile-meta"><div class="ig-cr-profile-user">@' + igCrEscape(username) + '</div>' + (followers ? '<div class="ig-cr-profile-followers">' + igCrEscape(followers) + '</div>' : '') + '</div></div><button type="button" class="ig-cr-profile-switch">Trocar</button></div>').show();
+         }
+
+         function igCrReset() {
+            igCrVerified = false;
+            $('.ig-cr-row').removeClass('is-hidden');
+            $('#igCrResult').removeClass('success error warning profile').hide().empty();
+         }
+
+         $('#linkInput').on('input', function () {
+            var cur = igCrNormalize($(this).val());
+            if (cur !== igCrLastUser) igCrReset();
+         });
+
+         $('#igCrVerifyBtn').on('click', function () {
+            var raw = $('#linkInput').val();
+            var username = igCrNormalize(raw);
+            if (!username || !/^[a-zA-Z0-9._]{1,30}$/.test(username)) {
+               igCrSetResult('error', 'Username inválido. Use @usuario ou o link do Instagram.');
+               return;
+            }
+            $('#igCrBtnText').hide();
+            $('#igCrBtnSpinner').show();
+            $(this).prop('disabled', true);
+            $.ajax({
+               url: 'https://agenciajvsocialup.com/checkout/instagram/check_user',
+               method: 'POST',
+               data: { username: username },
+               dataType: 'json',
+               timeout: 30000,
+               success: function (r) {
+                  if (r.valid) {
+                     igCrVerified = true;
+                     igCrLastUser = r.username || username;
+                     $('#linkInput').val(igCrLastUser);
+                     igCrShowProfile(r);
+                  } else if (r.rate_limited) {
+                     igCrSetResult('warning', r.message);
+                     igCrVerified = false;
+                  } else {
+                     igCrSetResult('error', r.message);
+                     igCrVerified = false;
+                  }
+               },
+               error: function (xhr, status) {
+                  var msg = status === 'timeout' ? 'Tempo esgotado. Tente novamente.' : 'Erro de conexão. Tente novamente.';
+                  igCrSetResult('error', msg);
+                  igCrVerified = false;
+               },
+               complete: function () {
+                  $('#igCrBtnText').show();
+                  $('#igCrBtnSpinner').hide();
+                  $('#igCrVerifyBtn').prop('disabled', false);
+               }
+            });
+         });
+
+         $('#igCrResult').on('click', '.ig-cr-profile-switch', function () {
+            igCrLastUser = '';
+            $('#linkInput').val('').focus();
+            igCrReset();
+         });
+
+         $('#linkInput').on('keydown', function (e) {
+            if (e.which === 13) { e.preventDefault(); $('#igCrVerifyBtn').trigger('click'); }
+         });
+         // ===== fim Verificação de Instagram =====
+
+         document.getElementById('btnFinalizar').addEventListener('click', function () {
+            var errBox = document.getElementById('formError');
+            var linkVal = document.getElementById('linkInput').value.trim();
+            var agreed = document.getElementById('agreeChk').checked;
+
+            if (!linkVal) {
+               errBox.textContent = 'Informe o link ou @ do perfil que vai receber o serviço.';
+               errBox.classList.remove('hidden');
+               document.getElementById('linkInput').focus();
+               return;
+            }
+            if (!igCrVerified) {
+               errBox.textContent = 'Verifique o perfil do Instagram antes de finalizar o pedido.';
+               errBox.classList.remove('hidden');
+               return;
+            }
+            if (!agreed) {
+               errBox.textContent = 'Você precisa concordar com os termos de serviço e política de privacidade para continuar.';
+               errBox.classList.remove('hidden');
+               return;
+            }
+            if (!plan || !plan.checkoutUrl) {
+               errBox.textContent = 'Não conseguimos identificar o link de pagamento deste pacote.';
+               errBox.classList.remove('hidden');
+               return;
+            }
+
+            errBox.classList.add('hidden');
+            window.location.href = plan.checkoutUrl;
+         });
+      });
+      </script>
+
+   </body>
+</html>
