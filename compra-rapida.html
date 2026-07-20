@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Compra Rápida - Engajar.me - Seguidores e curtidas no Instagram </title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://engajar.me/assets/uploads/usereb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f/5bdfa3e755ca71e9503cb8eaf1021f0e.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Toast CSS do sistema -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bf63d92f-1174-436a-b0ea-6e8c9d1665d144.css">
+    <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;background:linear-gradient(180deg,#e0d4fa 0%,#ede9fe 12%,#f5f3ff 25%,#fff 50%);color:#1f2937;-webkit-font-smoothing:antialiased}
+
+    .page{padding:40px 16px 120px;max-width:620px;margin:0 auto}
+    .logo{display:flex;justify-content:center;align-items:center;margin-bottom:32px}
+    .logo img{height:50px}
+    .title{text-align:center;font-size:1.45rem;font-weight:700;color:#7c3aed;margin-bottom:6px}
+    .subtitle{text-align:center;font-size:.84rem;color:#6b7280;margin-bottom:30px}
+
+    .step{animation:fadeUp .3s ease}
+    .step[hidden]{display:none!important}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Chip */
+    .chip-box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:16px;text-align:center;margin-bottom:24px}
+    .chip-label{font-size:.58rem;font-weight:800;color:#9ca3af;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .chip-val{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:#1f2937}
+    .chip-val i,.chip-val svg{color:#7c3aed;width:18px;height:18px}
+
+    /* Cards */
+    .card-list{display:flex;flex-direction:column;gap:6px}
+    .card{display:flex;align-items:center;justify-content:space-between;background:#fff;border:2px solid transparent;border-radius:14px;padding:16px 20px;cursor:pointer;transition:all .18s ease}
+    .card:hover{background:#faf5ff;border-color:#e9d5ff}
+    .card.active{background:#f5f3ff;border-color:#7c3aed;box-shadow:0 4px 14px -3px rgba(124,58,237,.18)}
+    .card-left{display:flex;align-items:center;gap:14px}
+    .card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;overflow:hidden}
+    .card-icon svg{width:22px!important;height:22px!important;max-width:22px;max-height:22px}
+    .card-icon.purple{background:#ede9fe;color:#7c3aed}
+    .card-icon.pink{background:#fce7f3;color:#ec4899}
+    .card-icon.red{background:#fee2e2;color:#ef4444}
+    .card-icon.blue{background:#dbeafe;color:#3b82f6}
+    .card-icon.green{background:#d1fae5;color:#10b981}
+    .card-icon.orange{background:#ffedd5;color:#f97316}
+    .card-name{font-size:.95rem;font-weight:600}
+    .badge{font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;padding:5px 12px;border-radius:20px;white-space:nowrap}
+    .badge-purple{background:#7c3aed;color:#fff}
+    .badge-gray{background:#f3f4f6;color:#6b7280}
+
+    /* Buttons */
+    .btn-row{display:flex;gap:12px;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:.88rem;font-weight:600;padding:14px 24px;border-radius:12px;border:none;cursor:pointer;transition:all .2s;font-family:inherit}
+    .btn-back{flex:1;background:#fff;color:#4b5563;border:1px solid #e5e7eb}
+    .btn-back:hover{background:#f9fafb}
+    .btn-next{flex:2;background:#7c3aed;color:#fff;box-shadow:0 4px 14px -3px rgba(124,58,237,.35)}
+    .btn-next:hover{background:#6d28d9}
+    .btn-next:disabled,.btn-full:disabled{background:#c4b5fd;box-shadow:none;cursor:not-allowed}
+    .btn-full{width:100%;background:#7c3aed;color:#fff;box-shadow:0 4px 14px -3px rgba(124,58,237,.35)}
+    .btn-full:hover:not(:disabled){background:#6d28d9}
+
+    .trust{display:flex;justify-content:center;gap:10px;margin-top:28px;flex-wrap:wrap}
+    .trust-item{background:#ede9fe;color:#7c3aed;font-size:.68rem;font-weight:700;padding:8px 14px;border-radius:10px;display:flex;align-items:center;gap:5px}
+
+    /* Input step3 */
+    .input-box{background:#fff;border-radius:14px;padding:24px;border:1px solid #e5e7eb}
+    .input-box label{display:block;font-size:.88rem;font-weight:600;margin-bottom:10px}
+    .input-box input{width:100%;padding:14px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:.88rem;font-family:inherit;color:#1f2937;outline:none;transition:border-color .2s}
+    .input-box input:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.08)}
+    .input-hint{font-size:.73rem;color:#9ca3af;margin-top:8px;line-height:1.6}
+
+    /* ===== Instagram Verification (compra-rapida) ===== */
+    .ig-cr-row{display:flex;gap:8px;align-items:stretch;margin-bottom:0}
+    .ig-cr-row input{flex:1;padding:14px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:.9rem;outline:none;transition:border-color .2s,box-shadow .2s;min-width:0}
+    .ig-cr-row input:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.08)}
+    .ig-cr-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:0 16px;border-radius:10px;border:none;background:linear-gradient(135deg,#7c3aed 0%,#3b82f6 100%);color:#fff;font-size:.85rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .15s;flex-shrink:0;box-shadow:0 2px 8px rgba(124,58,237,.30);letter-spacing:.01em}
+    .ig-cr-btn:hover:not(:disabled){opacity:.9;transform:translateY(-1px)}
+    .ig-cr-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .ig-cr-spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:cr-spin .7s linear infinite}
+    @keyframes cr-spin{to{transform:rotate(360deg)}}
+    .ig-cr-result{margin-top:8px;padding:9px 13px;border-radius:8px;font-size:.83rem;font-weight:600;display:none;align-items:center;gap:6px;animation:cr-fade .25s ease}
+    @keyframes cr-fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+    .ig-cr-result.success{display:flex;background:hsl(145 60% 94%);border:1.5px solid hsl(145 55% 75%);color:hsl(145 55% 32%)}
+    .ig-cr-result.error{display:flex;background:hsl(0 70% 96%);border:1.5px solid hsl(0 60% 82%);color:hsl(0 60% 42%)}
+    .ig-cr-result.warning{display:flex;background:hsl(38 90% 95%);border:1.5px solid hsl(38 85% 75%);color:hsl(38 80% 35%)}
+    .ig-cr-row.is-hidden{display:none}
+    .ig-cr-result.profile{display:block;background:#fff;border:1px solid #e5e7eb;color:#111827;padding:12px}
+    .ig-cr-profile-card{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .ig-cr-profile-main{display:flex;align-items:center;gap:11px;min-width:0}
+    .ig-cr-profile-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#f3f4f6;border:1px solid #e5e7eb}
+    .ig-cr-profile-avatar-fallback{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;flex-shrink:0;background:#f3f4f6;color:#7c3aed;font-weight:800}
+    .ig-cr-profile-meta{min-width:0}.ig-cr-profile-user{font-size:.92rem;font-weight:800;color:#111827;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ig-cr-profile-followers{margin-top:2px;font-size:.78rem;font-weight:500;color:#6b7280}
+    .ig-cr-profile-switch{min-width:108px;height:44px;border:none;border-radius:8px;background:#181821;color:#fff;font-size:.82rem;font-weight:800;cursor:pointer}
+    @media(max-width:420px){.ig-cr-profile-card{align-items:stretch;flex-direction:column}.ig-cr-profile-switch{width:100%}}
+    /* ===== fim Instagram Verification ===== */
+
+    /* Delivery bar */
+    .delivery-bar{background:#f3f4f6;border-radius:30px;padding:10px 24px;text-align:center;font-size:.82rem;color:#6b7280;margin-bottom:28px}
+    .delivery-bar strong{color:#1f2937}
+
+    /* Package grid - ENGAJAR STYLE */
+    .pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:20px}
+    .pkg{position:relative;border:2px solid #e5e7eb;border-radius:16px;padding:24px 14px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#fff}
+    .pkg:hover{border-color:#c4b5fd;box-shadow:0 2px 12px -2px rgba(124,58,237,.1)}
+    .pkg.active{border-color:#7c3aed;background:#f5f3ff;box-shadow:0 6px 20px -4px rgba(124,58,237,.22)}
+    .pkg-label{font-size:.7rem;font-weight:700;color:#374151;letter-spacing:.3px;margin-bottom:12px;line-height:1.3}
+    .pkg-qty{display:flex;align-items:center;justify-content:center;gap:6px;font-size:1.3rem;font-weight:800;color:#7c3aed;margin-bottom:16px}
+    .pkg-qty svg{width:20px!important;height:20px!important}
+    .pkg-total-lbl{font-size:.5rem;font-weight:800;color:#9ca3af;text-transform:uppercase;letter-spacing:1.8px;margin-bottom:4px}
+    .pkg-price{font-size:1.15rem;font-weight:800;color:#7c3aed}
+    .pkg-off{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;font-size:.58rem;font-weight:800;padding:4px 12px;border-radius:8px;white-space:nowrap}
+    .pkg-best{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;font-size:.58rem;font-weight:800;padding:4px 12px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 8px rgba(124,58,237,.3)}
+    .more-opts{position:fixed;bottom:140px;left:50%;transform:translateX(-50%);z-index:39;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease;pointer-events:none}
+    .more-opts.visible{opacity:1;pointer-events:auto}
+    .more-opts-pill{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,.1);padding:8px 18px;border-radius:20px;font-size:.78rem;font-weight:600;color:#6b7280;cursor:pointer;transition:all .2s}
+    .more-opts-pill:hover{color:#7c3aed;border-color:#c4b5fd;box-shadow:0 4px 16px rgba(124,58,237,.15)}
+    .more-opts-pill svg{animation:bounceDown 1.5s ease-in-out infinite}
+    @keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+    .back-link{text-align:center;margin:16px 0 100px}
+    .back-link button{background:#fff;border:1px solid #e5e7eb;color:#374151;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;padding:14px 0;border-radius:12px;width:100%;transition:all .2s;display:block}
+    .back-link button:hover{border-color:#c4b5fd;color:#7c3aed;background:#faf5ff}
+
+    /* Bottom bar - card style like engajar */
+    .bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:40;transform:translateY(100%);transition:transform .3s ease;pointer-events:none}
+    .bottom-bar.show{transform:translateY(0)}
+    .bottom-inner{max-width:620px;margin:0 auto;padding:12px 16px;pointer-events:auto}
+    .bottom-card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px 20px;box-shadow:0 -2px 20px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04)}
+    .bar-row{display:flex;justify-content:space-between;margin-bottom:4px}
+    .bar-lbl{font-size:.6rem;font-weight:800;color:#9ca3af;text-transform:uppercase;letter-spacing:1.5px}
+    .bar-vals{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .bar-desc{font-size:.9rem;font-weight:600;color:#1f2937}
+    .bar-price{font-size:1.2rem;font-weight:800;color:#7c3aed}
+    .bar-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;font-size:.9rem;font-weight:600;padding:14px;border-radius:12px;border:none;cursor:pointer;box-shadow:0 4px 14px -3px rgba(124,58,237,.35);transition:all .2s;font-family:inherit}
+    .bar-btn:hover{background:linear-gradient(135deg,#6d28d9,#9333ea);box-shadow:0 6px 18px -3px rgba(124,58,237,.45)}
+
+    /* MODAL - ENGAJAR STYLE */
+    .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:50;justify-content:center;align-items:center;padding:16px}
+    .modal-bg.show{display:flex}
+    .modal{background:#fff;border-radius:20px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;box-shadow:0 25px 60px -12px rgba(0,0,0,.25);animation:slideUp .4s cubic-bezier(.16,1,.3,1)}
+    @keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    .modal::-webkit-scrollbar{width:5px}
+    .modal::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:10px}
+    .modal-head{padding:28px 28px 20px;border-bottom:1px solid #f3f4f6}
+    .modal-head-top{display:flex;justify-content:space-between;align-items:flex-start}
+    .modal-tag{font-size:.6rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+    .modal-head h3{font-size:1.35rem;font-weight:700;margin:0 0 6px}
+    .modal-head p{font-size:.82rem;color:#6b7280;margin:0}
+    .modal-close{background:none;border:1px solid #e5e7eb;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:#9ca3af;transition:all .2s;flex-shrink:0}
+    .modal-close:hover{background:#f3f4f6;color:#374151}
+    .modal-body{padding:24px 28px 28px}
+
+    /* Section with left purple border - ENGAJAR */
+    .sec{border:1px solid #e5e7eb;border-left:4px solid #7c3aed;border-radius:14px;overflow:hidden;margin-bottom:20px;background:#fff}
+    .sec-h{background:#f9fafb;padding:14px 20px;border-bottom:1px solid #f3f4f6}
+    .sec-h h4{font-size:.95rem;font-weight:700;margin:0}
+    .sec-b{padding:20px}
+    .sec-b .f-label{display:block;font-size:.85rem;font-weight:600;color:#1f2937;margin-bottom:8px}
+    .sec-b input[type="email"],.sec-b input[type="text"]{width:100%;padding:13px 16px;border:1px solid #e5e7eb;border-radius:10px;font-size:.85rem;font-family:inherit;color:#1f2937;background:#fff;outline:none;transition:border-color .2s}
+    .sec-b input:focus{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.08)}
+    .f-hint{font-size:.72rem;color:#9ca3af;margin-top:6px}
+    .f-gap{margin-top:16px}
+
+    /* Payment option - ENGAJAR */
+    .pay-opt{display:flex;align-items:flex-start;gap:14px;padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;cursor:pointer;transition:border-color .2s;margin-bottom:8px}
+    .pay-opt:last-child{margin-bottom:0}
+    .pay-opt:hover{border-color:#c4b5fd}
+    .pay-opt input{accent-color:#7c3aed;width:18px;height:18px;cursor:pointer;margin-top:2px}
+    .pay-info{display:flex;flex-direction:column;gap:2px}
+    .pay-row{display:flex;align-items:center;gap:8px}
+    .pay-name{font-size:.88rem;font-weight:700}
+    .pay-badge{font-size:.6rem;font-weight:700;padding:3px 10px;border-radius:20px;background:#d1fae5;color:#059669}
+    .pay-sub{font-size:.72rem;color:#6b7280}
+
+    /* Terms */
+    .terms{display:flex;gap:10px;align-items:flex-start;margin-bottom:20px}
+    .terms input{width:18px;height:18px;accent-color:#7c3aed;margin-top:1px;cursor:pointer;flex-shrink:0}
+    .terms label{font-size:.8rem;color:#374151;cursor:pointer;line-height:1.5}
+    .terms a{color:#7c3aed;text-decoration:none}
+    .terms a:hover{text-decoration:underline}
+
+    /* Submit btn - ENGAJAR gradient */
+    .submit-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;font-size:1rem;font-weight:700;padding:16px;border-radius:14px;border:none;cursor:pointer;box-shadow:0 6px 20px -4px rgba(124,58,237,.4);transition:all .2s;margin-bottom:24px;font-family:inherit}
+    .submit-btn:hover{background:linear-gradient(135deg,#6d28d9,#9333ea);box-shadow:0 8px 24px -4px rgba(124,58,237,.5)}
+
+    /* Order summary */
+    .sum-product{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #f3f4f6;border-radius:12px;padding:14px}
+    .sum-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:#fce7f3;color:#ec4899}
+    .sum-icon svg{width:20px!important;height:20px!important}
+    .sum-name{font-size:.88rem;font-weight:700}
+    .sum-desc{font-size:.75rem;color:#6b7280;margin-top:2px}
+    .custo-badge{display:inline-block;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:.6rem;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:14px}
+
+    /* Purple "Você vai receber" card */
+    .receive-card{background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:16px 0}
+    .receive-card .rc-label{font-size:.72rem;font-weight:600;opacity:.9;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:6px}
+    .receive-card .rc-qty{font-size:2.2rem;font-weight:800;margin:4px 0}
+    .receive-card .rc-desc{font-size:.78rem;font-weight:500;opacity:.85}
+
+    .pr-row{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;padding:6px 0}
+    .pr-row.total{border-top:1px solid #e5e7eb;padding-top:14px;margin-top:10px}
+    .pr-lbl{color:#6b7280}.pr-val{color:#6b7280}
+    .pr-val.strike{text-decoration:line-through}
+    .pr-lbl.green,.pr-val.green{color:#059669;font-weight:600}
+    .pr-row.total .pr-lbl{font-weight:700;color:#1f2937;font-size:.95rem}
+    .pr-row.total .pr-val{font-weight:800;color:#7c3aed;font-size:1.1rem}
+
+    .loading{text-align:center;padding:40px 0;color:#9ca3af;font-size:.85rem}
+    .spinner{display:inline-block;width:28px;height:28px;border:3px solid #ede9fe;border-top-color:#7c3aed;border-radius:50%;animation:spin .7s linear infinite;margin-bottom:10px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .form-content{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:999}
+
+    /* PIX Loading */
+    .pix-loading{text-align:center;padding:40px 20px}
+    .pix-loading .spinner{width:40px;height:40px;margin-bottom:14px}
+    .pix-loading h4{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+    .pix-loading p{font-size:.82rem;color:#6b7280}
+
+    /* PIX Result */
+    .pix-result{padding:0}
+    .pix-qr-card{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #e9d5ff;border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;display:flex;flex-direction:column;align-items:center}
+    .pix-qr-card img{width:180px;height:180px;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 12px rgba(124,58,237,.12);margin:0 auto 14px;display:block}
+    .pix-val{font-size:1.4rem;font-weight:800;color:#7c3aed;margin:4px 0}
+    .pix-val-lbl{font-size:.72rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:1px}
+
+    /* Steps */
+    .pix-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+    .pix-step{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f9fafb;border:1px solid #f3f4f6;border-radius:12px}
+    .pix-step-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0}
+    .pix-step-txt{font-size:.8rem;color:#374151;font-weight:500}
+    .pix-step-txt strong{color:#7c3aed}
+
+    /* Clickable PIX code */
+    .pix-copy-area{position:relative;cursor:pointer;margin-bottom:16px;transition:all .2s}
+    .pix-copy-area:hover{transform:scale(1.01)}
+    .pix-copy-area:active{transform:scale(.98)}
+    .pix-copy-code{width:100%;padding:14px 16px;background:#f9fafb;border:2px dashed #d1d5db;border-radius:12px;font-size:.72rem;font-family:'Courier New',monospace;color:#374151;word-break:break-all;line-height:1.5;min-height:60px;max-height:90px;overflow:hidden;display:block}
+    .pix-copy-label{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font-size:.78rem;font-weight:600;color:#7c3aed}
+    .pix-copy-label i{font-size:.85rem}
+    .pix-copy-area.copied .pix-copy-code{border-color:#059669;background:#f0fdf4}
+    .pix-copy-area.copied .pix-copy-label{color:#059669}
+    .pix-copy-area:hover .pix-copy-code{border-color:#7c3aed;background:#faf5ff}
+
+    /* Copy toast inline */
+    .copy-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:rgba(5,150,105,.95);color:#fff;padding:16px 32px;border-radius:14px;font-size:.9rem;font-weight:700;display:flex;align-items:center;gap:10px;z-index:100;box-shadow:0 10px 30px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+    .copy-toast.show{transform:translate(-50%,-50%) scale(1)}
+    .copy-toast i{font-size:1.2rem}
+
+    /* Waiting indicator */
+    .pix-waiting{background:linear-gradient(135deg,#ede9fe,#f5f3ff);border:1px solid #e9d5ff;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;font-size:.78rem;color:#6d28d9;font-weight:500;margin-bottom:20px}
+    .pix-waiting .wait-dot{width:10px;height:10px;background:#7c3aed;border-radius:50%;animation:waitPulse 1.5s ease-in-out infinite;flex-shrink:0}
+    @keyframes waitPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+    /* Success */
+    .pix-success{text-align:center;padding:20px}
+    .pix-success .check-circle{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#d1fae5,#a7f3d0);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 14px rgba(16,185,129,.2)}
+    .pix-success .check-circle i{font-size:1.6rem;color:#059669}
+    .pix-success h4{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+    .pix-success p{font-size:.82rem;color:#6b7280;margin-bottom:20px}
+    .pix-success .info-row{display:flex;justify-content:space-between;padding:8px 0;font-size:.82rem;border-bottom:1px solid #f3f4f6}
+    .pix-success .info-row:last-child{border-bottom:none}
+    .pix-success .info-lbl{color:#6b7280}
+    .pix-success .info-val{font-weight:600;color:#1f2937}
+    .pix-success .info-val.status{color:#059669}
+    .pix-success .btn-home{display:block;width:100%;margin-top:20px;padding:14px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;border-radius:12px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;box-shadow:0 4px 14px -3px rgba(124,58,237,.35)}
+    .pix-success .btn-home:hover{background:linear-gradient(135deg,#6d28d9,#9333ea)}
+    .pix-success .btn-orders{display:block;width:100%;margin-top:10px;padding:14px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;font-size:.9rem;font-weight:600;cursor:pointer;color:#374151;font-family:inherit;text-align:center;text-decoration:none}
+    .pix-success .btn-orders:hover{background:#f9fafb}
+    @media(max-width:640px){
+        .title{font-size:1.2rem}
+        .pkg-grid{gap:12px}.pkg{padding:20px 10px 16px}.pkg-qty{font-size:1.1rem}.pkg-price{font-size:1rem}
+
+        /* Modal fullscreen bottom-sheet no mobile */
+        .modal-bg{padding:0;align-items:flex-end}
+        .modal{max-height:95vh;border-radius:20px 20px 0 0;max-width:100%}
+
+        /* Header compacto */
+        .modal-head{padding:16px 18px 12px}
+        .modal-tag{font-size:.55rem;margin-bottom:3px}
+        .modal-head h3{font-size:1.1rem;margin-bottom:3px}
+        .modal-head p{font-size:.72rem}
+        .modal-close{width:34px;height:34px}
+
+        /* Body compacto */
+        .modal-body{padding:12px 16px 24px}
+
+        /* PIX mobile */
+        .pix-qr-card{padding:16px}
+        .pix-qr-card img{width:150px;height:150px}
+        .pix-val{font-size:1.2rem}
+        .pix-steps{gap:6px;margin-bottom:12px}
+        .pix-step{padding:10px 12px;gap:10px}
+        .pix-step-num{width:24px;height:24px;font-size:.65rem}
+        .pix-step-txt{font-size:.75rem}
+        .pix-copy-area{margin-bottom:12px}
+        .pix-copy-code{padding:10px 12px;font-size:.65rem;min-height:50px;max-height:70px}
+        .pix-copy-label{font-size:.72rem;margin-top:8px}
+        .pix-waiting{padding:12px 14px;font-size:.72rem;gap:10px;margin-bottom:16px}
+
+        /* Seções compactas */
+        .sec{margin-bottom:12px;border-radius:10px}
+        .sec-h{padding:10px 14px}
+        .sec-h h4{font-size:.82rem}
+        .sec-b{padding:12px 14px}
+        .sec-b .f-label{font-size:.78rem;margin-bottom:5px}
+        .sec-b input[type="email"],.sec-b input[type="text"]{padding:10px 12px;font-size:.8rem;border-radius:8px}
+        .f-hint{font-size:.65rem;margin-top:4px}
+        .f-gap{margin-top:10px}
+
+        /* Payment compacto */
+        .pay-opt{padding:10px 12px;gap:10px;border-radius:10px;margin-bottom:6px}
+        .pay-opt input{width:16px;height:16px}
+        .pay-name{font-size:.8rem}
+        .pay-badge{font-size:.55rem;padding:2px 8px}
+        .pay-sub{font-size:.65rem}
+
+        /* Terms compacto */
+        .terms{gap:8px;margin-bottom:12px}
+        .terms input{width:16px;height:16px}
+        .terms label{font-size:.72rem}
+
+        /* Submit compacto */
+        .submit-btn{padding:13px;font-size:.88rem;border-radius:12px;margin-bottom:14px}
+
+        /* Summary compacto */
+        .custo-badge{font-size:.55rem;padding:4px 10px;margin-bottom:10px}
+        .sum-product{padding:10px;gap:10px}
+        .sum-icon{width:36px;height:36px}
+        .sum-name{font-size:.78rem}
+        .sum-desc{font-size:.68rem}
+        .receive-card{padding:14px;margin:10px 0;border-radius:10px}
+        .receive-card .rc-qty{font-size:1.6rem}
+        .receive-card .rc-label{font-size:.65rem}
+        .receive-card .rc-desc{font-size:.68rem}
+        .pr-row{font-size:.78rem;padding:4px 0}
+        .pr-row.total{padding-top:10px;margin-top:6px}
+        .pr-row.total .pr-lbl{font-size:.85rem}
+        .pr-row.total .pr-val{font-size:.95rem}
+    }
+    </style>
+</head>
+<body>
+<div class="toast-viewport" id="toastViewport"></div>
+<div class="form-content"></div>
+
+<div class="page">
+    <div class="logo"><a href="index.html"><img src="https://engajar.me/assets/uploads/usereb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f/40b07827f124200d60c4a824a78526c2.png" alt="Logo"></a></div>
+    <h1 class="title" id="pgTitle">Escolha sua Rede Social</h1>
+    <p class="subtitle" id="pgSub">Selecione a plataforma que você deseja impulsionar</p>
+
+    <!-- STEP 1 -->
+    <div class="step" id="s1">
+        <div class="card-list" id="redesList"><div class="loading"><div class="spinner"></div><div>Carregando redes sociais...</div></div></div>
+        <div class="btn-row"><button class="btn btn-full" id="btn1" disabled>Continuar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+        <div class="trust">
+            <div class="trust-item"><i class="fas fa-lock"></i> Sem senha</div>
+            <div class="trust-item"><i class="fas fa-bolt"></i> Entrega automática</div>
+            <div class="trust-item"><i class="fas fa-shield-alt"></i> Pagamento seguro</div>
+        </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="s2" hidden>
+        <div class="chip-box"><div class="chip-label">REDE SELECIONADA</div><div class="chip-val" id="chipRede"></div></div>
+        <div class="card-list" id="catsList"><div class="loading"><div class="spinner"></div><div>Carregando categorias...</div></div></div>
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="go(1)">Voltar</button>
+            <button class="btn btn-next" id="btn2" disabled>Continuar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="s3" hidden>
+        <div class="chip-box"><div class="chip-label">CATEGORIA SELECIONADA</div><div class="chip-val" id="chipCat"></div></div>
+        <div class="input-box">
+            <label>Link ou @ do Perfil</label>
+            <div class="ig-cr-row">
+              <input type="text" id="linkInput" placeholder="@usuario ou link do Instagram" autocomplete="off" spellcheck="false">
+              <button type="button" id="igCrVerifyBtn" class="ig-cr-btn">
+                <span id="igCrBtnText">Verificar</span>
+                <span id="igCrBtnSpinner" style="display:none"><span class="ig-cr-spinner"></span></span>
+              </button>
+            </div>
+            <div id="igCrResult" class="ig-cr-result"></div>
+            <div class="input-hint">Informe @usuario ou link completo. Deixe o perfil público durante a entrega.</div>
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="go(2)">Voltar</button>
+            <button class="btn btn-next" id="btn3" disabled>Continuar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" id="s4" hidden>
+        <div class="delivery-bar">Entrega em: <strong id="delivTarget">automático</strong></div>
+        <div class="pkg-grid" id="pkgGrid"><div class="loading" style="grid-column:span 2"><div class="spinner"></div><div>Carregando pacotes...</div></div></div>
+        <div class="more-opts" id="moreOpts"><div class="more-opts-pill" onclick="window.scrollBy({top:200,behavior:'smooth'})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg> Mais opções abaixo</div></div>
+        <div id="pkgEnd" style="height:1px"></div>
+        <div class="back-link"><button onclick="go(3)">Voltar</button></div>
+    </div>
+</div>
+
+<div class="bottom-bar" id="bottomBar">
+    <div class="bottom-inner"><div class="bottom-card">
+        <div class="bar-row"><span class="bar-lbl">PRONTO PARA PAGAR</span><span class="bar-lbl">TOTAL</span></div>
+        <div class="bar-vals"><div class="bar-desc" id="barDesc">0 por R$ 0,00</div><div class="bar-price" id="barPrice">R$ 0,00</div></div>
+        <button class="bar-btn" onclick="openCheckout()">Ir para o checkout <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    </div></div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-bg" id="modalBg">
+    <div class="modal">
+        <div class="modal-head">
+            <div class="modal-head-top">
+                <div>
+                    <div class="modal-tag">CHECKOUT</div>
+                    <h3>Finalizar compra</h3>
+                    <p>Confira o pedido e escolha a forma de pagamento.</p>
+                </div>
+                <button class="modal-close" onclick="closeCheckout()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <form id="frmCheckout" action="https://agenciajvsocialup.com/checkout/process" method="POST">
+                <input type="hidden" name="token" value="eef284ac38b19e0350ad57e4c5021606">
+                <input type="hidden" name="item_ids" id="fItemIds">
+                <input type="hidden" name="quantity" id="fQty">
+                <input type="hidden" name="link" id="fLink">
+
+                <!-- Suas Informações -->
+                <div class="sec">
+                    <div class="sec-h"><h4>Suas Informações</h4></div>
+                    <div class="sec-b">
+                        <label class="f-label">Endereço de Email</label>
+                        <input type="email" name="email" required placeholder="Por favor, insira seu endereço de email">
+                        <div class="f-gap"></div>
+                        <label class="f-label">Seu Whatsapp</label>
+                        <input type="text" name="whatsapp" id="wppInput" required placeholder="51 98010-7363">
+                        <div class="f-hint">para receber atualizações referente ao seu pedido.</div>
+                    </div>
+                </div>
+
+                <!-- Forma de Pagamento -->
+                <div class="sec">
+                    <div class="sec-h"><h4>Forma de Pagamento</h4></div>
+                    <div class="sec-b">
+                                                                                                                                                                                                                        <label class="pay-opt">
+                                <input type="radio" name="payment_method" value="mercadopago" checked>
+                                <div class="pay-info">
+                                                                            <div class="pay-row">
+                                            <i class="fas fa-qrcode" style="color:#14b8a6;font-size:1rem;"></i>
+                                            <span class="pay-name">PIX</span>
+                                            <span class="pay-badge">Pagamento imediato</span>
+                                        </div>
+                                        <span class="pay-sub">Aprovação instantânea com QR Code</span>
+                                                                    </div>
+                            </label>
+                                                                                                                                                                                                                        </div>
+                </div>
+
+                <!-- Termos -->
+                <div class="terms">
+                    <input type="checkbox" name="agree" id="agreeChk" required checked>
+                    <label for="agreeChk">Concordo com os <a href="https://agenciajvsocialup.com/terms" target="_blank">termos de serviço</a> e <a href="https://agenciajvsocialup.com/terms" target="_blank">política de privacidade</a></label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="submit-btn" id="btnSubmit">Finalizar pedido</button>
+
+                <!-- Resumo do Pedido -->
+                <div class="sec">
+                    <div class="sec-h"><h4>Resumo do Pedido</h4></div>
+                    <div class="sec-b">
+                        <span class="custo-badge">Compare o melhor custo por 1k</span>
+                        <div class="sum-product">
+                            <div class="sum-icon" id="sumIcon"><i class="fas fa-users"></i></div>
+                            <div>
+                                <div class="sum-name" id="sumTitle">...</div>
+                                <div class="sum-desc" id="sumSub">...</div>
+                            </div>
+                        </div>
+
+                        <!-- Purple "Você vai receber" card -->
+                        <div class="receive-card">
+                            <div class="rc-label"><i class="fas fa-check-square"></i> Você vai receber</div>
+                            <div class="rc-qty" id="rcQty">0</div>
+                            <div class="rc-desc" id="rcDesc">Seguidores para sua conta</div>
+                        </div>
+
+                        <div class="pr-row"><span class="pr-lbl">Subtotal</span><span class="pr-val strike" id="sumSubtotal">R$ 0,00</span></div>
+                        <div class="pr-row"><span class="pr-lbl green">% Desconto</span><span class="pr-val green" id="sumDisc">R$ 0,00</span></div>
+                        <div class="pr-row total"><span class="pr-lbl">Total</span><span class="pr-val" id="sumTotal">R$ 0,00</span></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+var API = 'https://agenciajvsocialup.com/compra-rapida/';
+var BASE = 'https://agenciajvsocialup.com/';
+
+var redesData=[], catsData=[], srvsData=[];
+var srvsLoading=false;
+var S={sn:null,cat:null,link:'',srv:null};
+
+$(function(){
+    loadRedes();
+    $('#wppInput').on('input',function(){var v=$(this).val().replace(/\D/g,'');if(v.length>11)v=v.substring(0,11);if(v.length>2)v='('+v.substring(0,2)+') '+v.substring(2);if(v.length>10)v=v.substring(0,10)+'-'+v.substring(10);$(this).val(v)});
+    // ===== Instagram Verification (compra-rapida) =====
+    var igCrVerified = false;
+    var igCrLastUser = '';
+
+    function igCrNormalize(val){
+        val = $.trim(val);
+        var m = val.match(/instagram\.com\/([a-zA-Z0-9._]+)/i);
+        if(m) return m[1].toLowerCase();
+        if(val.charAt(0)==='@') val=val.substring(1);
+        val=val.split('?')[0].replace(/\/$/,'');
+        return val.toLowerCase();
+    }
+
+    function igCrEscape(value){return String(value||'').replace(/[&<>'"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c];});}
+    function igCrFollowers(value){var n=parseInt(value,10);if(isNaN(n))return '';try{return n.toLocaleString('pt-BR')+' seguidores'}catch(e){return n+' seguidores'}}
+
+    function igCrSetResult(type, msg){
+        var icon = type==='success'?'✓':(type==='error'?'✗':'⚠');
+        $('#igCrResult').removeClass('success error warning profile').addClass(type).html('<span>'+icon+'</span> '+igCrEscape(msg)).show();
+    }
+
+    function igCrShowProfile(profile){
+        var username=profile.username||igCrLastUser||igCrNormalize($('#linkInput').val());
+        var followers=igCrFollowers(profile.followers);
+        var avatar=profile.profile_pic_url?'<img class="ig-cr-profile-avatar" src="https://agenciajvsocialup.com/'+igCrEscape(profile.profile_pic_url)+'" alt="@'+igCrEscape(username)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-flex\';"><span class="ig-cr-profile-avatar-fallback" style="display:none;">@</span>':'<span class="ig-cr-profile-avatar-fallback">@</span>';
+        $('.ig-cr-row').addClass('is-hidden');
+        $('#igCrResult').removeClass('success error warning').addClass('profile').html('<div class="ig-cr-profile-card"><div class="ig-cr-profile-main">'+avatar+'<div class="ig-cr-profile-meta"><div class="ig-cr-profile-user">@'+igCrEscape(username)+'</div>'+(followers?'<div class="ig-cr-profile-followers">'+igCrEscape(followers)+'</div>':'')+'</div></div><button type="button" class="ig-cr-profile-switch">Trocar</button></div>').show();
+    }
+
+    function igCrReset(){
+        igCrVerified=false;
+        $('#btn3').prop('disabled',true);
+        $('.ig-cr-row').removeClass('is-hidden');
+        $('#igCrResult').removeClass('success error warning profile').hide().empty();
+    }
+
+    // Resetar ao digitar se username mudou
+    $('#linkInput').on('input',function(){
+        var cur=igCrNormalize($(this).val());
+        S.link=$(this).val().trim();
+        if(cur!==igCrLastUser) igCrReset();
+    });
+
+    // Botão Verificar
+    $('#igCrVerifyBtn').on('click',function(){
+        var raw=$("#linkInput").val();
+        var username=igCrNormalize(raw);
+        if(!username||!/^[a-zA-Z0-9._]{1,30}$/.test(username)){
+            igCrSetResult('error','Username inválido. Use @usuario ou o link do Instagram.');
+            return;
+        }
+        $('#igCrBtnText').hide();$('#igCrBtnSpinner').show();
+        $(this).prop('disabled',true);
+        $.ajax({
+            url:'https://agenciajvsocialup.com/checkout/instagram/check_user',
+            method:'POST',
+            data:{username:username},
+            dataType:'json',
+            timeout:30000,
+            success:function(r){
+                if(r.valid){
+                    igCrVerified=true;
+                    igCrLastUser=r.username||username;
+                    S.link=igCrLastUser;
+                    $('#linkInput').val(igCrLastUser);
+                    igCrShowProfile(r);
+                    $('#btn3').prop('disabled',false);
+                }else if(r.rate_limited){
+                    igCrSetResult('warning',r.message);
+                    igCrVerified=false;$('#btn3').prop('disabled',true);
+                }else{
+                    igCrSetResult('error',r.message);
+                    igCrVerified=false;$('#btn3').prop('disabled',true);
+                }
+            },
+            error:function(xhr,status){
+                var msg=status==='timeout'?'Tempo esgotado. Tente novamente.':'Erro de conexão. Tente novamente.';
+                igCrSetResult('error',msg);
+                igCrVerified=false;$('#btn3').prop('disabled',true);
+            },
+            complete:function(){
+                $('#igCrBtnText').show();$('#igCrBtnSpinner').hide();
+                $('#igCrVerifyBtn').prop('disabled',false);
+            }
+        });
+    });
+
+    $('#igCrResult').on('click','.ig-cr-profile-switch',function(){
+        igCrLastUser='';S.link='';$('#linkInput').val('').focus();igCrReset();
+    });
+
+    // Enter no campo = clicar Verificar
+    $('#linkInput').on('keydown',function(e){
+        if(e.which===13){e.preventDefault();$('#igCrVerifyBtn').trigger('click');}
+    });
+
+    // O btn3 agora só avança se verificado
+    $('#btn3').on('click',function(){
+        if(igCrVerified && S.link.length>=3) goToStep4();
+    });
+    // ===== fim Instagram Verification =====
+    $('#modalBg').on('click',function(e){if(e.target===this)closeCheckout()});
+
+    // AJAX customizado para checkout (delegation para funcionar após restore)
+    $(document).on('submit', '#frmCheckout', function(e){
+        e.preventDefault();
+        var $f=$(this), $btn=$('#btnSubmit');
+        $('#fLink').val(S.link);
+        var email=$f.find('input[name="email"]').val();
+        var wpp=$f.find('input[name="whatsapp"]').val();
+        if(!email||!wpp){if(typeof alertMessage!=='undefined')alertMessage.show('Preencha todos os campos!','error');return}
+        if(!$('#fItemIds').val()){if(typeof alertMessage!=='undefined')alertMessage.show('Selecione um pacote!','error');return}
+
+        // Mostrar loading
+        $btn.prop('disabled',true).html('<div class="spinner" style="width:18px;height:18px;border-width:2px;margin:0 auto"></div>');
+        var origBody=$('.modal-body').html();
+        $('.modal-head h3').text('Processando...');
+        $('.modal-head p').text('Gerando seu pagamento PIX, aguarde.');
+        $('.modal-head .modal-tag').text('PAGAMENTO');
+        $('.modal-body').html('<div class="pix-loading"><div class="spinner"></div><h4>Gerando PIX...</h4><p>Estamos criando seu QR Code de pagamento</p></div>');
+
+        // Pegar token CSRF do cookie
+        function getCk(n){var c=document.cookie.split(';');for(var i=0;i<c.length;i++){var p=c[i].split('=');if(p[0].trim()===n)return decodeURIComponent(p[1])}return null}
+        var tk=getCk('token');
+        var postData=$f.serialize();
+        if(tk)postData+='&token='+encodeURIComponent(tk);
+
+        function restoreForm(msg){
+            $('.modal-head h3').text('Finalizar compra');
+            $('.modal-head p').text('Confira o pedido e escolha a forma de pagamento.');
+            $('.modal-head .modal-tag').text('CHECKOUT');
+            $('.modal-body').html(origBody);
+            $('#btnSubmit').prop('disabled',false).text('Finalizar pedido');
+            if(msg && typeof alertMessage!=='undefined') alertMessage.show(msg,'error');
+        }
+
+        $.post($f.attr('action'), postData)
+        .done(function(resp){
+            try{
+                var j=JSON.parse(resp);
+                if(j.status==='error'){
+                    restoreForm(j.message||'Erro no processamento');
+                    return;
+                }
+            }catch(ex){}
+            // Resposta HTML = PIX modal do payment module
+            processPIXResponse(resp);
+        })
+        .fail(function(){
+            restoreForm('Erro na comunicação com o servidor');
+        });
+    });
+});
+
+function fmt(n){return parseFloat(n).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function qfmt(n){return parseInt(n).toLocaleString('pt-BR')}
+function getColor(name){var n=(name||'').toLowerCase();var m={instagram:'purple',tiktok:'pink',youtube:'red',facebook:'blue',twitter:'blue',kwai:'orange',telegram:'blue',spotify:'green',threads:'purple'};for(var k in m)if(n.indexOf(k)!==-1)return m[k];return 'purple'}
+
+// ═══ STEP 1 ═══
+function loadRedes(){
+    $.getJSON(API+'api/redes',function(r){
+        if(r.status!=='success')return;
+        redesData=r.data;
+        var h='';
+        $.each(r.data,function(i,sn){
+            h+='<div class="card" data-idx="'+i+'"><div class="card-left"><div class="card-icon '+getColor(sn.name)+'"><i class="'+sn.image+'"></i></div><div class="card-name">'+sn.name+'</div></div><div class="badge badge-purple">'+sn.total_categorias+' CATEGORIA'+(sn.total_categorias>1?'S':'')+'</div></div>';
+        });
+        $('#redesList').html(h);
+        $('#redesList').on('click','.card',function(){
+            var i=parseInt($(this).data('idx'));
+            $('#redesList .card').removeClass('active');$(this).addClass('active');
+            S.sn=redesData[i];
+            $('#btn1').prop('disabled',false).off('click').on('click',function(){go(2)});
+            $('#chipRede').html('<i class="'+S.sn.image+'"></i> '+S.sn.name);
+            loadCats(S.sn.id);
+        });
+        // Auto-selecionar primeira rede
+        if(r.data.length>0){
+            setTimeout(function(){$('#redesList .card').first().trigger('click')},100);
+        }
+    });
+}
+
+// ═══ STEP 2 ═══
+function loadCats(snId){
+    $('#catsList').html('<div class="loading"><div class="spinner"></div><div>Carregando categorias...</div></div>');
+    $('#btn2').prop('disabled',true).off('click');catsData=[];
+    $.getJSON(API+'api/categorias/'+snId,function(r){
+        if(r.status!=='success')return;
+        catsData=r.data;
+        var h='';
+        $.each(r.data,function(j,c){
+            h+='<div class="card" data-idx="'+j+'"><div class="card-left"><div class="card-icon pink" id="ci_'+j+'"></div><div class="card-name">'+c.name+'</div></div><div class="badge badge-gray">'+c.total_servicos+' PACOTE'+(c.total_servicos>1?'S':'')+'</div></div>';
+        });
+        $('#catsList').html(h);
+        $.each(r.data,function(j,c){$('#ci_'+j).html(c.icon&&c.icon.trim().length>0?c.icon:'<i class="fas fa-tag"></i>')});
+        $('#catsList').off('click','.card').on('click','.card',function(){
+            var j=parseInt($(this).data('idx'));
+            $('#catsList .card').removeClass('active');$(this).addClass('active');
+            S.cat=catsData[j];
+            $('#btn2').prop('disabled',false).off('click').on('click',function(){go(3)});
+            $('#chipCat').html((S.cat.icon&&S.cat.icon.trim().length>0?S.cat.icon:'<i class="fas fa-tag"></i>')+' '+S.cat.name);
+            $('#linkInput').val('');S.link='';$('#btn3').prop('disabled',true);
+            srvsData=[];srvsLoading=true;
+            $.getJSON(API+'api/servicos/'+S.cat.id,function(r2){srvsLoading=false;if(r2.status==='success')srvsData=r2.data}).fail(function(){srvsLoading=false;srvsData=[]});
+        });
+        // Auto-selecionar primeira categoria
+        if(r.data.length>0){
+            setTimeout(function(){$('#catsList .card').first().trigger('click')},100);
+        }
+    });
+}
+
+// ═══ STEP 4 ═══
+function goToStep4(){
+    if(srvsLoading){
+        $('#pkgGrid').html('<div class="loading" style="grid-column:span 2"><div class="spinner"></div><div>Carregando pacotes...</div></div>');
+        go(4);
+        var c=setInterval(function(){if(!srvsLoading){clearInterval(c);renderPkg()}},200);
+        return;
+    }
+    go(4);renderPkg();
+}
+
+function renderPkg(){
+    if(!srvsData||srvsData.length===0){
+        $('#pkgGrid').html('<div style="grid-column:span 2;text-align:center;padding:40px 0;color:#9ca3af;">Nenhum pacote disponível.</div>');
+        return;
+    }
+    var lnk=S.link.length>25?S.link.substring(0,25)+'...':S.link;
+    $('#delivTarget').text(lnk||'automático');
+    var catIcon=(S.cat&&S.cat.icon&&S.cat.icon.trim().length>0)?S.cat.icon:'<i class="fas fa-tag"></i>';
+    var h='';
+    $.each(srvsData,function(k,s){
+        var q=parseInt(s.quantity),dp=(s.discount&&parseFloat(s.discount)>0)?parseInt(parseFloat(s.discount)):0;
+        var isBest=(q===1000);
+        var badge='';
+        if(isBest) badge='<div class="pkg-best">Mais Vendido</div>';
+        else if(dp>0) badge='<div class="pkg-off">'+dp+'% OFF</div>';
+        h+='<div class="pkg" data-idx="'+k+'">'+badge+
+        '<div class="pkg-label">'+S.cat.name+' '+S.sn.name+'</div>'+
+        '<div class="pkg-qty" id="pqi_'+k+'">'+qfmt(q)+'</div>'+
+        '<div class="pkg-total-lbl">TOTAL</div>'+
+        '<div class="pkg-price">R$ '+fmt(s.price)+'</div></div>';
+    });
+    $('#pkgGrid').html(h);
+    $.each(srvsData,function(k){var $e=$('#pqi_'+k),t=$e.text();$e.empty().append($('<span></span>').html(catIcon)).append(' '+t)});
+    if(srvsData.length>4){
+        $('#moreOpts').addClass('visible');
+        // Observer: esconder quando rolar até o final
+        var endEl=document.getElementById('pkgEnd');
+        if(endEl && 'IntersectionObserver' in window){
+            if(window._moreObserver) window._moreObserver.disconnect();
+            window._moreObserver=new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) $('#moreOpts').removeClass('visible');
+                    else if(document.getElementById('s4')&&!document.getElementById('s4').hidden) $('#moreOpts').addClass('visible');
+                });
+            },{threshold:0});
+            window._moreObserver.observe(endEl);
+        }
+    } else {
+        $('#moreOpts').removeClass('visible');
+    }
+    $('#pkgGrid').off('click','.pkg').on('click','.pkg',function(){pickService(parseInt($(this).data('idx')),this)});
+    // Pré-selecionar pacote de 1000 (ou o primeiro se não existir)
+    var defaultIdx=0;
+    $.each(srvsData,function(k,s){
+        if(parseInt(s.quantity)===1000){defaultIdx=k;return false;}
+    });
+    setTimeout(function(){
+        var $pkg=$('.pkg[data-idx="'+defaultIdx+'"]');
+        if($pkg.length) pickService(defaultIdx,$pkg[0]);
+        else if($('.pkg').first().length) pickService(0,$('.pkg')[0]);
+    },50);
+}
+
+function pickService(k,el){
+    var s=srvsData[k];S.srv=s;
+    $('.pkg').removeClass('active');$(el).addClass('active');
+    var q=parseInt(s.quantity);
+    $('#barDesc').text(qfmt(q)+' por R$ '+fmt(s.price));
+    $('#barPrice').text('R$ '+fmt(s.price));
+    $('#fItemIds').val(s.ids);$('#fQty').val(s.quantity);$('#fLink').val(S.link);
+
+    // Modal summary
+    $('#sumTitle').html(S.cat.name+' <span style="background:#f3f4f6;color:#6b7280;font-size:.6rem;padding:2px 8px;border-radius:4px;margin-left:4px;font-weight:700">BR</span>');
+    $('#sumSub').text(S.sn.name+' • '+S.cat.name);
+    if(S.cat.icon&&S.cat.icon.trim().length>0)$('#sumIcon').html(S.cat.icon);
+    $('#rcQty').text(qfmt(q));
+    $('#rcDesc').text(S.cat.name+' para sua conta');
+    var sub=parseFloat(s.price),disc=0;
+    if(s.discount&&parseFloat(s.discount)>0){sub=parseFloat(s.price)/(1-parseFloat(s.discount)/100);disc=sub-parseFloat(s.price)}
+    $('#sumSubtotal').text('R$ '+fmt(sub));
+    $('#sumDisc').text('R$ '+fmt(disc));
+    $('#sumTotal').text('R$ '+fmt(s.price));
+}
+
+function go(n){
+    $('[id^="s"]').filter('.step').attr('hidden',true);$('#s'+n).removeAttr('hidden');
+    var t={1:{t:'Escolha sua Rede Social',s:'Selecione a plataforma que você deseja impulsionar'},2:{t:'Escolha a Categoria',s:'Defina o tipo de serviço que você quer comprar'},3:{t:'Onde vamos entregar seu pedido?',s:'Informe link ou @ do perfil que vai receber o serviço.'},4:{t:'Escolha a Quantidade',s:'Compare o custo por pacote e avance para o checkout'}};
+    $('#pgTitle').text(t[n].t);$('#pgSub').text(t[n].s);
+    if(n===4)$('#bottomBar').addClass('show');else $('#bottomBar').removeClass('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openCheckout(){$('#modalBg').addClass('show');$('body').css('overflow','hidden')}
+function closeCheckout(){$('#modalBg').removeClass('show');$('body').css('overflow','auto')}
+
+// ═══ PROCESSAR RESPOSTA PIX ═══
+function processPIXResponse(html){
+    // Extrair dados do HTML retornado pelo payment module
+    var $tmp=$('<div>').html(html);
+    
+    // Extrair QR code image
+    var qrImg='';
+    $tmp.find('img').each(function(){
+        var src=$(this).attr('src')||'';
+        if(src.indexOf('data:image')!==-1 || src.indexOf('qr')!==-1){
+            qrImg=src;
+        }
+    });
+    
+    // Extrair EMV/código PIX do textarea
+    var emvCode='';
+    $tmp.find('textarea').each(function(){
+        var v=$(this).text()||$(this).val()||'';
+        if(v.length>30) emvCode=v.trim();
+    });
+    
+    // Extrair valor
+    var amount='';
+    var amtMatch=html.match(/R\$[\s]?[\d.,]+/);
+    if(amtMatch) amount=amtMatch[0];
+    
+    // Extrair orderId do script de polling  
+    var orderIdMatch=html.match(/var orderId\s*=\s*'([^']+)'/);
+    var orderId=orderIdMatch?orderIdMatch[1]:'';
+    
+    // Extrair URL base de polling (sem o orderId no final)
+    var pollMatch=html.match(/url:\s*'([^']*status[^']*)'/);
+    var pollBase=pollMatch?pollMatch[1]:'';
+    
+    // Extrair redirect URL base (sem orderId no final)
+    var redirMatch=html.match(/window\.location\.href\s*=\s*'([^']*success[^']*)'/);
+    var redirBase=redirMatch?redirMatch[1]:'';
+    
+    // Construir URLs completas combinando base + orderId
+    var fullPollUrl = pollBase && orderId ? pollBase + orderId : '';
+    var fullRedirUrl = redirBase && orderId ? redirBase + orderId : '';
+    
+    // Fallback: construir URLs diretamente se regex falhou
+    if(!fullPollUrl && orderId){
+        // Detectar tipo de payment
+        if(html.indexOf('expay')!==-1 || html.indexOf('ExPay')!==-1){
+            fullPollUrl = '/checkout/expay/status/' + orderId;
+        } else if(html.indexOf('pushinpay')!==-1){
+            fullPollUrl = '/checkout/pushinpay/status/' + orderId;
+        } else if(html.indexOf('mercadopago')!==-1){
+            fullPollUrl = '/checkout/mercadopago/status/' + orderId;
+        }
+    }
+    if(!fullRedirUrl && orderId){
+        fullRedirUrl = '/checkout/success/' + orderId;
+    }
+    
+    console.log('PIX Polling - orderId:', orderId, 'pollUrl:', fullPollUrl, 'redirUrl:', fullRedirUrl);
+    
+    // Atualizar modal header
+    $('.modal-head .modal-tag').text('PAGAMENTO');
+    $('.modal-head h3').text('Pagamento via PIX');
+    $('.modal-head p').text('Escaneie o QR code ou copie o codigo abaixo para concluir.');
+    
+    // Montar HTML do PIX - redesigned
+    var pixHtml='<div class="pix-result">';
+    
+    // QR Code card com gradiente
+    if(qrImg){
+        pixHtml+='<div class="pix-qr-card">';
+        pixHtml+='<img src="https://agenciajvsocialup.com/'+qrImg+'" alt="QR Code PIX">';
+        pixHtml+='<div class="pix-val-lbl">VALOR A PAGAR</div>';
+        if(amount) pixHtml+='<div class="pix-val">'+amount+'</div>';
+        pixHtml+='</div>';
+    }
+    
+    // Steps - Como pagar
+    pixHtml+='<div class="pix-steps">';
+    pixHtml+='<div class="pix-step"><div class="pix-step-num">1</div><div class="pix-step-txt">Abra o app do seu <strong>banco</strong></div></div>';
+    pixHtml+='<div class="pix-step"><div class="pix-step-num">2</div><div class="pix-step-txt">Escolha pagar via <strong>PIX copia e cola</strong></div></div>';
+    pixHtml+='<div class="pix-step"><div class="pix-step-num">3</div><div class="pix-step-txt">Cole o código abaixo e <strong>confirme</strong></div></div>';
+    pixHtml+='</div>';
+    
+    // Código PIX clicável
+    if(emvCode){
+        pixHtml+='<div class="pix-copy-area" onclick="copyPIX()" id="pixCopyArea">';
+        pixHtml+='<input type="hidden" id="pixCode" value="'+emvCode.replace(/"/g,'&quot;')+'">';
+        pixHtml+='<div class="pix-copy-code">'+emvCode+'</div>';
+        pixHtml+='<div class="pix-copy-label"><i class="fas fa-clone"></i> Toque para copiar o código PIX</div>';
+        pixHtml+='</div>';
+    }
+    
+    // Aviso com animação de pulso
+    pixHtml+='<div class="pix-waiting"><div class="wait-dot"></div><span>Aguardando pagamento... a página será atualizada automaticamente.</span></div>';
+    
+    pixHtml+='</div>';
+    
+    // Toast de copiado
+    pixHtml+='<div class="copy-toast" id="copyToast"><i class="fas fa-check-circle"></i> PIX copiado com sucesso!</div>';
+    
+    $('.modal-body').html(pixHtml);
+    
+    // Iniciar polling de status
+    if(fullPollUrl && orderId){
+        console.log('Iniciando polling a cada 2s para:', fullPollUrl);
+        var pollInterval=setInterval(function(){
+            $.ajax({
+                url: fullPollUrl,
+                method:'GET',
+                dataType:'json',
+                success:function(r){
+                    console.log('Polling response:', r);
+                    if(r && (r.status==='1' || r.status===1)){
+                        clearInterval(pollInterval);
+                        // Chamar checkout/success via AJAX para acionar o safety net
+                        // que cria o pedido na tabela orders quando o webhook falha
+                        var successUrl = fullRedirUrl || '/checkout/success/' + orderId;
+                        console.log('Pagamento confirmado! Chamando safety net:', successUrl);
+                        $.ajax({
+                            url: successUrl,
+                            method:'GET',
+                            success:function(){
+                                console.log('Safety net chamado com sucesso');
+                                showSuccess(successUrl);
+                            },
+                            error:function(){
+                                console.log('Erro no safety net, mostrando sucesso mesmo assim');
+                                showSuccess(successUrl);
+                            }
+                        });
+                    }
+                },
+                error:function(xhr,st,err){
+                    console.log('Polling error:', st, err);
+                }
+            });
+        },2000);
+    }
+}
+
+function copyPIX(){
+    var code=$('#pixCode').val();
+    var $area=$('#pixCopyArea');
+    var $lbl=$area.find('.pix-copy-label');
+    var $toast=$('#copyToast');
+    
+    function showCopied(){
+        // Feedback visual na área
+        $area.addClass('copied');
+        $lbl.html('<i class="fas fa-check-circle"></i> Copiado com sucesso!');
+        
+        // Toast centralizado
+        $toast.addClass('show');
+        
+        // Remover após 2.5s
+        setTimeout(function(){
+            $toast.removeClass('show');
+            $area.removeClass('copied');
+            $lbl.html('<i class="fas fa-clone"></i> Toque para copiar o código PIX');
+        },2500);
+    }
+    
+    if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(code).then(showCopied).catch(function(){
+            // Fallback
+            fallbackCopy(code);
+            showCopied();
+        });
+    } else {
+        fallbackCopy(code);
+        showCopied();
+    }
+}
+
+function fallbackCopy(text){
+    var ta=document.createElement('textarea');
+    ta.value=text;
+    ta.style.position='fixed';
+    ta.style.left='-9999px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+}
+
+function showSuccess(url){
+    $('.modal-head .modal-tag').text('CONCLUÍDO');
+    $('.modal-head h3').text('Pedido Realizado com Sucesso!');
+    $('.modal-head p').text('Recebemos seu pedido e estamos processando agora.');
+    
+    var qty=S.srv?qfmt(S.srv.quantity):'0';
+    var srvName=S.cat?S.cat.name:'Serviço';
+    var price=S.srv?'R$ '+fmt(S.srv.price):'R$ 0,00';
+    
+    var h='<div class="pix-success">';
+    h+='<div class="check-circle"><i class="fas fa-check"></i></div>';
+    h+='<h4>Pagamento Confirmado!</h4>';
+    h+='<p>Enviamos os detalhes da sua compra por email.</p>';
+    h+='<div class="sec" style="margin-bottom:16px;text-align:left"><div class="sec-h"><h4>Status do seu pedido:</h4></div><div class="sec-b">';
+    h+='<div class="info-row"><span class="info-lbl">Serviço:</span><span class="info-val">'+srvName+'</span></div>';
+    h+='<div class="info-row"><span class="info-lbl">Qt. comprada:</span><span class="info-val">'+qty+'</span></div>';
+    h+='<div class="info-row"><span class="info-lbl">Valor:</span><span class="info-val" style="color:#7c3aed">'+price+'</span></div>';
+    h+='<div class="info-row"><span class="info-lbl">Status:</span><span class="info-val status">Pendente</span></div>';
+    h+='</div></div>';
+    h+='<button class="btn-home" onclick="window.location.href=\'https://agenciajvsocialup.com/\'">Voltar para a Página Inicial</button>';
+    h+='<a href="orders.html" class="btn-orders">Acompanhar meus pedidos</a>';
+    h+='</div>';
+    
+    $('.modal-body').html(h);
+}
+</script>
+
+<!-- Toast/Alert JS do sistema -->
+<script type="text/javascript" src="assets/js/803a0bab-5107-48d8-ba38-8e103e466f13.js@v=20260624"></script>
+</body>
+</html>

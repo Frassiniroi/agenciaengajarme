@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta http-equiv="Content-Language" content="en">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <title>Finalizar Pedido - Engajar.me</title>
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="HandheldFriendly" content="True">
+      <meta name="MobileOptimized" content="320">
+      <link rel="stylesheet" type="text/css" href="assets/css/bf63d92f-1174-436a-b0ea-6e8c9d1665d144.css">
+      <!--==Fav-icon===============================-->
+      <link rel="shortcut icon" type="image/x-icon" href="https://engajar.me/assets/uploads/usereb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f/5bdfa3e755ca71e9503cb8eaf1021f0e.png">
+      <!--==JAVASCRIPT=============================-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!--==Using-Font-Awesome=====================-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!--==Import-Font-Family======================-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+         body { background-image: none !important; background-color: #f9fafb; }
+      </style>
+   </head>
+   <body class="bg-gray-50">
+
+      <div class="px-4 py-6 md:py-10">
+         <div class="w-full max-w-md mx-auto">
+
+            <!-- Logo -->
+            <div class="flex justify-center mt-4 md:mt-6 mb-6">
+               <a href="https://agenciajvsocialup.com/">
+                  <img src="https://engajar.me/assets/uploads/usereb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f/40b07827f124200d60c4a824a78526c2.png" alt="Logo" class="h-9 md:h-10 w-auto">
+               </a>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 shadow-card p-6 md:p-8">
+
+               <!-- Título -->
+               <h1 class="text-xl md:text-2xl font-bold text-purple-600 text-center mb-5">
+                  Finalizar Pedido
+               </h1>
+
+               <!-- Erro geral -->
+               <div id="formError" class="hidden mb-4 px-3 py-2 rounded-md bg-red-50 border border-red-200 text-red-600 text-sm"></div>
+
+               <!-- Link do Perfil ou @ -->
+               <div class="mb-4">
+                  <label for="linkInput" class="block text-sm font-medium text-gray-800 mb-1.5">Link do Perfil ou @</label>
+                  <input type="text" id="linkInput" placeholder="@usuario ou link do Instagram" autocomplete="off" spellcheck="false" class="w-full px-3.5 py-4 rounded-md border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                  <div class="text-xs text-gray-500 mt-1.5">Informe @usuario ou link completo. Deixe o perfil público durante a entrega.</div>
+               </div>
+
+               <!-- Termos -->
+               <div class="flex items-start gap-3 bg-gray-50 border border-gray-200 rounded-md px-4 py-4 mb-5">
+                  <input type="checkbox" id="agreeChk" class="mt-0.5 h-4 w-4 accent-purple-600 shrink-0">
+                  <label for="agreeChk" class="text-xs md:text-sm text-gray-600 leading-snug">
+                     Concordo com os termos de serviço e política de privacidade
+                  </label>
+               </div>
+
+               <!-- Botão -->
+               <button type="button" id="btnFinalizar" class="w-full bg-primary text-white text-sm md:text-base font-semibold px-4 py-3 rounded-md hover:opacity-90 transition-opacity shadow-[0_4px_4px_#08080814,0_1px_2px_#08080833,inset_0_6px_12px_#ffffff1f,inset_0_1px_1px_#fff3]">
+                  Finalizar Pedido
+               </button>
+
+               <!-- Resumo do Pedido -->
+               <div id="orderSummaryWrapper" class="hidden mt-8">
+                  <div class="text-sm font-semibold text-gray-900 mb-2">Resumo do Pedido</div>
+                  <div id="orderSummary" class="flex items-center justify-between bg-purple-50 border border-purple-100 rounded-md px-4 py-3">
+                     <div>
+                        <div class="text-xs text-gray-500">25% de Desconto</div>
+                        <div class="text-sm font-semibold text-gray-900" id="orderSummaryName">—</div>
+                     </div>
+                     <div class="text-lg font-bold text-purple-600" id="orderSummaryPrice">—</div>
+                  </div>
+               </div>
+
+               <!-- Selo de segurança -->
+               <div class="mt-8 pt-4 border-t border-gray-100 text-center">
+                  <div class="text-sm font-semibold text-gray-900">Compra 100% Segura</div>
+                  <p class="text-xs md:text-sm text-gray-500 mt-1.5">
+                     Não pedimos sua senha do seu perfil em nenhum momento. Seus dados estão protegidos.
+                  </p>
+               </div>
+
+               <div class="flex flex-wrap justify-center gap-6 mt-6">
+                  <div class="inline-flex items-center gap-1.5 text-emerald-700 text-xs md:text-sm font-medium">
+                     <i class="fa-solid fa-shield"></i>
+                     Pagamento Seguro
+                  </div>
+                  <div class="inline-flex items-center gap-1.5 text-black text-xs md:text-sm font-medium">
+                     <i class="fa-regular fa-clock"></i>
+                     Entrega Rápida
+                  </div>
+               </div>
+
+            </div>
+
+            <div class="text-center mt-6">
+               <p style="font-size: 12px; color: #9ca3af; margin: 0;">
+                  &copy; 2020-2026. Todos os Direitos Reservados.
+               </p>
+               <p style="font-size: 12px; color: #9ca3af; margin: 4px 0 0;">
+                  Termos de Uso e Política de Privacidade
+               </p>
+            </div>
+         </div>
+      </div>
+
+      <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         // Catálogo de planos: item_id -> nome exibido, preço e link de checkout
+         var catalog = {
+            '689': { name: '1.000 Seguidores Brasileiros', price: 'R$ 9,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/dca2123b6d1c45d78d883842a6a4707f' },
+            '690': { name: '3.000 Seguidores Brasileiros', price: 'R$ 19,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/8daf3f2bcc6d4b22822a4f385f6176b3' },
+            '691': { name: '5.000 Seguidores Brasileiros', price: 'R$ 24,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/11d1710b620a4bd88a9296d1a3b41a60' },
+            '692': { name: '10.000 Seguidores Brasileiros', price: 'R$ 29,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/594ee0a65c2449759f975d64dbf524fc' },
+            '694': { name: '15.000 Seguidores Brasileiros', price: 'R$ 39,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/b61a61189fe54d60a9ce4cfd04c8f05c' },
+            '695': { name: '20.000 Seguidores Brasileiros', price: 'R$ 49,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/f54af2d1161e4077bda95902ab9cefe9' },
+            '696': { name: '40.000 Seguidores Brasileiros', price: 'R$ 69,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/edfd3b9133bc4b81af61fd833d5ad0ce' },
+            '697': { name: '50.000 Seguidores Brasileiros', price: 'R$ 79,90', checkoutUrl: 'https://pay.risepay.com.br/Pay/7841e8ee3b994a638a3fbfed06b8b042' }
+         };
+
+         // Recupera token e item_id vindos da URL (?token=...&item_id=...)
+         var params = new URLSearchParams(window.location.search);
+         var token = params.get('token') || '';
+         var itemId = params.get('item_id') || '';
+
+         // Preenche o resumo do pedido se o item_id for reconhecido
+         var plan = catalog[itemId];
+         if (plan) {
+            document.getElementById('orderSummaryName').textContent = plan.name;
+            document.getElementById('orderSummaryPrice').textContent = plan.price;
+            document.getElementById('orderSummaryWrapper').classList.remove('hidden');
+         }
+
+         // Se faltar algum dado essencial, avisa e manda de volta pra página de planos
+         if (!token || !itemId || !plan) {
+            var err = document.getElementById('formError');
+            err.textContent = 'Não conseguimos identificar o pacote escolhido. Volte e selecione novamente.';
+            err.classList.remove('hidden');
+            document.getElementById('btnFinalizar').disabled = true;
+            document.getElementById('btnFinalizar').classList.add('opacity-50', 'cursor-not-allowed');
+         }
+
+         document.getElementById('btnFinalizar').addEventListener('click', function () {
+            var errBox = document.getElementById('formError');
+            var linkVal = document.getElementById('linkInput').value.trim();
+            var agreed = document.getElementById('agreeChk').checked;
+
+            if (!linkVal) {
+               errBox.textContent = 'Informe o link ou @ do perfil que vai receber o serviço.';
+               errBox.classList.remove('hidden');
+               document.getElementById('linkInput').focus();
+               return;
+            }
+            if (!agreed) {
+               errBox.textContent = 'Você precisa concordar com os termos de serviço e política de privacidade para continuar.';
+               errBox.classList.remove('hidden');
+               return;
+            }
+            if (!plan || !plan.checkoutUrl) {
+               errBox.textContent = 'Não conseguimos identificar o link de pagamento deste pacote.';
+               errBox.classList.remove('hidden');
+               return;
+            }
+
+            errBox.classList.add('hidden');
+            window.location.href = plan.checkoutUrl;
+         });
+      });
+      </script>
+
+   </body>
+</html>
